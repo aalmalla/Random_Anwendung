@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
 	data() {
 		return {
@@ -33,7 +34,7 @@ export default {
 					ingredients: ["Spaghetti", "Eier", "Speck"],
 					steps: ["Wasser kochen", "Spaghetti kochen", "Speck braten", "Alles vermischen"]
 				}
-				// Weitere Rezepte hinzufügen
+				// Weitere Rezepte hinzufügen.
 			]
 		};
 	},
