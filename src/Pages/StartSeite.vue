@@ -3,21 +3,24 @@
 		<v-container>
 			<v-row>
 				<v-col v-for="recipe in recipes" :key="recipe.idMeal" cols="12" sm="6" md="4">
-					<RecipeCard :recipe="recipe" />
+					<router-link :to="{ name: 'RecipeDetail', params: { id: recipe.idMeal } }">
+						<SimpleRecipeCard :recipe="recipe" />
+					</router-link>
 				</v-col>
 			</v-row>
 		</v-container>
 	</div>
 </template>
 
+
 <script>
-import RecipeCard from "../components/RecipeCard.vue";
+import SimpleRecipeCard from "../components/SimpleRecipeCard.vue"; // geänderter Import
 import { fetchAllRecipes } from "../services/RecipeService.js";
 
 export default {
 	name: 'StartSeite',
 	components: {
-		RecipeCard,
+		SimpleRecipeCard, // geänderte Komponente
 	},
 	data() {
 		return {
