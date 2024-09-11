@@ -48,7 +48,6 @@ export default {
 			}
 		},
 		extractIngredients(recipe) {
-			// Extrahiere die Zutaten aus dem Rezept
 			return extractIngredients(recipe);
 		},
 	},
@@ -56,5 +55,5 @@ export default {
 </script>
 
 <style scoped>
-/* Dein optionales Styling hier */
+
 </style>

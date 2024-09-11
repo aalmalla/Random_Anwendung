@@ -14,5 +14,5 @@ export default {
 </script>
 
 <style scoped>
-/* Optional: Hier kannst du spezifisches Styling für diese Komponente hinzufügen */
+
 </style>
