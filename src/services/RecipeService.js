@@ -14,7 +14,7 @@ export async function fetchRandomRecipe() {
 	}
 }
 
-// Diese Funktion holt alle verfügbaren Rezepte
+// Diese Funktion holt alle verfügbaren Rezepte.
 export async function fetchAllRecipes() {
 	try {
 		const response = await axios.get(`${BASE_URL}/search.php?s=`);
