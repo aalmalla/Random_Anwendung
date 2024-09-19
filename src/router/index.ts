@@ -1,15 +1,15 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
-
-import Generator from '../Pages/Generator.vue';
-import StartSeite from '../Pages/StartSeite.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Recipes from '../pages/Recipes.vue';
+import RandomRecipe from '../pages/RandomRecipe.vue';
+import Recipe from '../pages/Recipe.vue';
 
 const routes = [
+	{ path: '/', name: 'Recipes', component: Recipes },
+	{ path: '/:id?', name: 'Recipe', component: Recipe },
+	{ path: '/randomRecipe/', name: 'RandomRecipe', component: RandomRecipe },
+];
 
-	{path: '/', component: StartSeite},
-	{path: '/recipe', component: Generator, name:"Ger"},
-]
-
-export const router = createRouter({
-	history: createWebHashHistory(),
+export default createRouter({
+	history: createWebHistory(),
 	routes,
 });
