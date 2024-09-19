@@ -15,7 +15,7 @@
 				<h3>Ingredients:</h3>
 				<v-chip-group column class="ingredients-list">
 					<v-chip
-						v-for="(ingredient, index) in ingredients" :key="index">{{ ingredient }}
+						v-for="(ingredient) in ingredients" :key="recipe">{{ ingredient }}
 					</v-chip>
 				</v-chip-group>
 				<h3>Instructions:</h3>
