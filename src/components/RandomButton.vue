@@ -1,4 +1,4 @@
-
+<--Es wird nicht benutzt-->
 <template>
 	<v-btn loadRandomRecipe @click="loadRandomRecipe">Random Recipe</v-btn>
 </template>
