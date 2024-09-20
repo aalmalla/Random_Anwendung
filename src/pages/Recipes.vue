@@ -1,21 +1,36 @@
 <template>
-		<v-main class="recipe-grid">
-				<RecipeCard v-for="(recipe, index) in recipes" :key="index" :recipe="recipe" />
+	<SearchRecipes :recipes="recipes" :onFilter="setFilteredRecipes" />
+
+
+	<v-main class="recipe-grid">
+
+			<RecipeCard v-for="(recipe) in filteredRecipes" :key="recipe.idMeal" :recipe="recipe" />
 		</v-main>
 </template>
 
 <script setup lang="ts">
 import {ref, onMounted} from 'vue';
 
+
 import {useRecipeService} from '../services/recipeService';
 import RecipeCard from '../components/RecipeCard.vue';
+import SearchRecipes from '../components/SearchRecipes.vue';
+
 
 const recipes = ref([]);
+const filteredRecipes = ref([]);
 const {getRecipe} = useRecipeService();
+
+const setFilteredRecipes = (filtered) => {
+	filteredRecipes.value = filtered;
+};
+
 
 onMounted(async () => {
 	recipes.value = await getRecipe();
 	console.log(recipes.value);
+
+	filteredRecipes.value = recipes.value;
 });
 </script>
 
@@ -35,4 +50,6 @@ onMounted(async () => {
 	gap: 1.5rem;
 	width: 100%;
 }
+
+
 </style>
