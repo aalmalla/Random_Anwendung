@@ -20,8 +20,6 @@ Führen Sie die folgenden Schritte aus, um das Projekt lokal einzurichten und zu
 2. **Installieren Sie die Abhängigkeiten:**
    ```bash
    npm install
-   npm install axios
-   npm install vue-router
    ```
 
 3. **Starten Sie den Entwicklungsserver:**
