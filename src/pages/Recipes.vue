@@ -1,8 +1,6 @@
 <template>
-	<div class="center-container">
-		<v-text-field v-model="searchRecipe" label="Suche Rezept" outlined dense style="height: 50px;"></v-text-field>
+	<SearchRecipes :recipes="recipes" :onFilter="setFilteredRecipes" />
 
-	</div>
 
 	<v-main class="recipe-grid">
 
@@ -11,25 +9,28 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, computed} from 'vue';
+import {ref, onMounted} from 'vue';
 
 
 import {useRecipeService} from '../services/recipeService';
 import RecipeCard from '../components/RecipeCard.vue';
+import SearchRecipes from '../components/SearchRecipes.vue';
 
 
 const recipes = ref([]);
-const searchRecipe = ref("");
+const filteredRecipes = ref([]);
 const {getRecipe} = useRecipeService();
 
-const filteredRecipes = computed(() => {
-	return recipes.value.filter(recipe => recipe.strMeal.toLowerCase().includes(searchRecipe.value.toLowerCase()));
-});
+const setFilteredRecipes = (filtered) => {
+	filteredRecipes.value = filtered;
+};
 
 
 onMounted(async () => {
 	recipes.value = await getRecipe();
 	console.log(recipes.value);
+
+	filteredRecipes.value = recipes.value;
 });
 </script>
 
@@ -48,14 +49,6 @@ onMounted(async () => {
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 1.5rem;
 	width: 100%;
-}
-.center-container {
-
-	min-height: 5vh;
-	margin: auto;
-	width: 400px;
-	height: 1px;
-
 }
 
 
